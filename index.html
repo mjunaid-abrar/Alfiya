@@ -1,0 +1,2301 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#190309" />
+  <title>ALFIYA — THE RED ROSE EVENING ❤️</title>
+
+  <!-- Premium Royal Typography: Cinzel, Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS & ROYAL ROMANCE PALETTE
+       ========================================================================== */
+    :root {
+      --bg-void: #120206;
+      --bg-burgundy-deep: #190309;
+      --bg-burgundy-velvet: #2b0611;
+      --crimson-royal: #8e1129;
+      --crimson-glow: #c41e3d;
+      --gold-champagne: #d4af37;
+      --gold-shimmer: #f5dc93;
+      --gold-bronze: #a67c1e;
+      --cream-silk: #faf3e8;
+      --ivory-warm: #f2e2cd;
+      --ivory-pure: #fffaf2;
+
+      --font-display: 'Cinzel', Georgia, serif;
+      --font-poetic: 'Cormorant Garamond', Georgia, serif;
+      --font-ui: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --glass-bg: rgba(36, 6, 15, 0.56);
+      --glass-border: rgba(212, 175, 55, 0.28);
+      --glass-border-strong: rgba(245, 220, 147, 0.48);
+      --shadow-royal: 0 24px 60px -15px rgba(8, 1, 3, 0.85);
+    }
+
+    /* ==========================================================================
+       2. RESET, BASE & SCROLLBAR
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background-color: var(--bg-burgundy-deep);
+      color: var(--cream-silk);
+      font-family: var(--font-ui);
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(142, 17, 41, 0.28) 0%, transparent 55%),
+        radial-gradient(circle at 85% 35%, rgba(212, 175, 55, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 15% 70%, rgba(196, 30, 61, 0.16) 0%, transparent 50%),
+        linear-gradient(180deg, #160208 0%, #24050e 45%, #190309 100%);
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.65;
+    }
+
+    body.intro-locked {
+      overflow: hidden;
+      height: 100dvh;
+    }
+
+    ::selection {
+      background: rgba(212, 175, 55, 0.35);
+      color: var(--ivory-pure);
+    }
+
+    /* Custom Elegant Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #140207;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--gold-bronze), var(--gold-champagne), var(--crimson-royal));
+      border-radius: 999px;
+    }
+
+    /* ==========================================================================
+       3. ATMOSPHERIC LAYERS (CANVAS PETALS, SPOTLIGHTS & GRAIN)
+       ========================================================================== */
+    #atmosphere-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .volumetric-spotlight {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background:
+        radial-gradient(ellipse 65% 45% at 50% 12%, rgba(245, 220, 147, 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 50% 55%, rgba(196, 30, 61, 0.1) 0%, transparent 72%);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+
+    body.music-playing .volumetric-spotlight {
+      animation: ambientBreath 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes ambientBreath {
+      0% { opacity: 0.85; transform: scale(1); }
+      100% { opacity: 1.15; transform: scale(1.04); }
+    }
+
+    /* ==========================================================================
+       4. CUSTOM LUXURY CURSOR (DESKTOP POINTER ONLY)
+       ========================================================================== */
+    .cursor-ring, .cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.35s ease, width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+    }
+
+    .cursor-ring {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(245, 220, 147, 0.55);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+
+    .cursor-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--gold-shimmer);
+      box-shadow: 0 0 10px var(--gold-champagne);
+    }
+
+    .cursor-ring.hovering {
+      width: 52px;
+      height: 52px;
+      border-color: var(--gold-shimmer);
+      background-color: rgba(212, 175, 55, 0.08);
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .cursor-ring, .cursor-dot {
+        display: none !important;
+      }
+    }
+
+    /* ==========================================================================
+       5. FULL-SCREEN CINEMATIC OPENING
+       ========================================================================== */
+    #cinematic-intro {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(142, 17, 41, 0.34) 0%, rgba(25, 3, 9, 0.96) 62%, #0e0105 100%);
+      transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1), transform 1.6s cubic-bezier(0.22, 1, 0.36, 1), visibility 1.4s;
+    }
+
+    #cinematic-intro.dismissed {
+      opacity: 0;
+      transform: scale(1.06);
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .intro-frame {
+      max-width: 780px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .intro-line {
+      font-family: var(--font-poetic);
+      font-size: clamp(1.35rem, 3.8vw, 2.25rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ivory-warm);
+      letter-spacing: 0.02em;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 1.3s ease, transform 1.3s cubic-bezier(0.22, 1, 0.36, 1), filter 1.3s ease;
+      filter: blur(4px);
+    }
+
+    .intro-line.visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .intro-line.soft-dim {
+      opacity: 0.58;
+    }
+
+    .intro-divider {
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-champagne), var(--gold-shimmer), var(--gold-champagne), transparent);
+      margin: 0.35rem auto;
+      transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .intro-divider.expanded {
+      width: min(260px, 65vw);
+    }
+
+    .intro-hero-reveal {
+      font-family: var(--font-display);
+      font-size: clamp(1.65rem, 5vw, 3.2rem);
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: 0.06em;
+      background: linear-gradient(135deg, #f5dc93 0%, #d4af37 35%, #fff5d6 52%, #d4af37 72%, #a67c1e 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 40px rgba(212, 175, 55, 0.25);
+      opacity: 0;
+      transform: translateY(22px) scale(0.97);
+      filter: blur(6px);
+      transition: opacity 1.5s ease, transform 1.5s cubic-bezier(0.22, 1, 0.36, 1), filter 1.5s ease;
+      animation: goldShimmerFlow 5s linear infinite;
+    }
+
+    .intro-hero-reveal.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    @keyframes goldShimmerFlow {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* Golden Halo ENTER Button */
+    .enter-btn-wrapper {
+      margin-top: 1.25rem;
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+      transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .enter-btn-wrapper.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .btn-enter {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1rem 2.75rem;
+      min-height: 54px;
+      border-radius: 999px;
+      border: 1px solid var(--gold-shimmer);
+      background: linear-gradient(135deg, rgba(142, 17, 41, 0.75) 0%, rgba(43, 6, 17, 0.92) 100%);
+      color: var(--ivory-pure);
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-indent: 0.28em;
+      cursor: pointer;
+      box-shadow:
+        0 0 25px rgba(212, 175, 55, 0.32),
+        0 0 60px rgba(196, 30, 61, 0.35),
+        inset 0 0 18px rgba(245, 220, 147, 0.16);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+      overflow: hidden;
+    }
+
+    .btn-enter::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 999px;
+      border: 1px solid rgba(245, 220, 147, 0.5);
+      animation: haloPulse 2.6s ease-out infinite;
+      pointer-events: none;
+    }
+
+    .btn-enter::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 70%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(245, 220, 147, 0.38), transparent);
+      transform: skewX(-22deg);
+      transition: left 0.75s ease;
+    }
+
+    .btn-enter:hover {
+      transform: translateY(-2px) scale(1.03);
+      border-color: #fff3c4;
+      box-shadow:
+        0 0 38px rgba(245, 220, 147, 0.55),
+        0 0 80px rgba(196, 30, 61, 0.5),
+        inset 0 0 24px rgba(245, 220, 147, 0.28);
+    }
+
+    .btn-enter:hover::after {
+      left: 160%;
+    }
+
+    .btn-enter:active {
+      transform: scale(0.98);
+    }
+
+    @keyframes haloPulse {
+      0% { transform: scale(1); opacity: 0.75; }
+      100% { transform: scale(1.22, 1.45); opacity: 0; }
+    }
+
+    /* ==========================================================================
+       6. MAIN EXPERIENCE LAYOUT & SHARED LUXURY COMPONENTS
+       ========================================================================== */
+    main#main-experience {
+      position: relative;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 1.4s ease;
+      padding-bottom: 8.5rem; /* Space for floating music player */
+    }
+
+    main#main-experience.revealed {
+      opacity: 1;
+    }
+
+    .section-shell {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: clamp(4.25rem, 9vw, 7.5rem) clamp(1.25rem, 4vw, 2.5rem);
+      position: relative;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--gold-shimmer);
+      margin-bottom: 1rem;
+    }
+
+    .section-eyebrow::before,
+    .section-eyebrow::after {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-champagne));
+    }
+
+    .section-eyebrow::after {
+      background: linear-gradient(90deg, var(--gold-champagne), transparent);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4.6vw, 3.1rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0.08em;
+      background: linear-gradient(135deg, #fff6db 0%, #f5dc93 38%, #d4af37 72%, #f5dc93 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 10px 32px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Scroll Reveal Utility */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 1.05s cubic-bezier(0.22, 1, 0.36, 1), transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-on-scroll.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       7. HERO & THE BEAUTY APPRECIATION SECTION
+       ========================================================================== */
+    .royal-theme-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(142, 17, 41, 0.42), rgba(25, 3, 9, 0.78));
+      border: 1px solid rgba(245, 220, 147, 0.38);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), inset 0 0 15px rgba(212, 175, 55, 0.12);
+      font-family: var(--font-display);
+      font-size: clamp(0.68rem, 2.1vw, 0.82rem);
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: var(--ivory-pure);
+      margin-bottom: 2.25rem;
+      text-align: center;
+    }
+
+    /* Silk Harmony Swatches: Red Dress & Cream Hijab */
+    .attire-harmony-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      max-width: 680px;
+      margin: 2.25rem auto 3rem;
+    }
+
+    @media (max-width: 540px) {
+      .attire-harmony-grid {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+      }
+    }
+
+    .silk-swatch-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      border-radius: 20px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      text-align: left;
+      transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .silk-swatch-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--glass-border-strong);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+    }
+
+    .swatch-orb {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 50%;
+      position: relative;
+      border: 1.5px solid rgba(245, 220, 147, 0.65);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+    }
+
+    .swatch-orb.crimson-silk {
+      background: radial-gradient(circle at 30% 25%, #e32b4f 0%, #9b112c 52%, #470513 100%);
+    }
+
+    .swatch-orb.cream-silk {
+      background: radial-gradient(circle at 30% 25%, #fffdf9 0%, #f5e6d3 58%, #d7bfa1 100%);
+    }
+
+    .swatch-meta h3 {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--gold-shimmer);
+      margin-bottom: 0.15rem;
+    }
+
+    .swatch-meta p {
+      font-family: var(--font-poetic);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--ivory-warm);
+      line-height: 1.3;
+    }
+
+    /* Sequenced Compliment Cards */
+    .beauty-sequence-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.35rem;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .compliment-cinematic-card {
+      position: relative;
+      padding: clamp(1.4rem, 3.5vw, 2.1rem) clamp(1.35rem, 4vw, 2.5rem);
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(48, 8, 20, 0.68) 0%, rgba(23, 3, 9, 0.82) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.24);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow-royal);
+      opacity: 0;
+      transform: translateY(26px) scale(0.985);
+      filter: blur(4px);
+      transition:
+        opacity 1.15s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1.15s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 1.15s ease,
+        border-color 0.45s ease,
+        box-shadow 0.45s ease;
+    }
+
+    .compliment-cinematic-card.revealed {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    .compliment-cinematic-card.highlight-cream {
+      background: linear-gradient(145deg, rgba(64, 16, 30, 0.64) 0%, rgba(36, 9, 18, 0.84) 100%);
+      border-color: rgba(245, 220, 147, 0.36);
+    }
+
+    .compliment-cinematic-card.finale-card {
+      border-color: rgba(245, 220, 147, 0.52);
+      box-shadow:
+        0 24px 60px -15px rgba(8, 1, 3, 0.9),
+        0 0 36px rgba(212, 175, 55, 0.14);
+    }
+
+    .compliment-cinematic-card:hover {
+      border-color: var(--gold-shimmer);
+      transform: translateY(-2px);
+    }
+
+    .card-numeral {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      color: var(--gold-champagne);
+      margin-bottom: 0.55rem;
+      opacity: 0.85;
+    }
+
+    .compliment-cinematic-card p {
+      font-family: var(--font-poetic);
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--ivory-pure);
+    }
+
+    .btn-replay-subtle {
+      margin-top: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.3rem;
+      border-radius: 999px;
+      background: rgba(25, 3, 9, 0.6);
+      border: 1px solid rgba(212, 175, 55, 0.28);
+      color: var(--gold-shimmer);
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-replay-subtle:hover {
+      border-color: var(--gold-shimmer);
+      background: rgba(142, 17, 41, 0.45);
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       8. INTERACTIVE COMPLIMENT EXPERIENCE
+       ========================================================================== */
+    .interactive-sanctuary {
+      position: relative;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: clamp(2.25rem, 5vw, 3.75rem) clamp(1.5rem, 4.5vw, 3.25rem);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 65%),
+        linear-gradient(160deg, rgba(45, 7, 18, 0.78) 0%, rgba(20, 2, 8, 0.9) 100%);
+      border: 1px solid rgba(245, 220, 147, 0.36);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow:
+        0 30px 70px rgba(6, 1, 3, 0.85),
+        inset 0 1px 0 rgba(255, 250, 242, 0.14);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Corner Filigree Ornaments */
+    .corner-ornament {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      pointer-events: none;
+      opacity: 0.55;
+      color: var(--gold-champagne);
+    }
+    .corner-ornament.tl { top: 14px; left: 14px; }
+    .corner-ornament.tr { top: 14px; right: 14px; transform: scaleX(-1); }
+    .corner-ornament.bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+    .corner-ornament.br { bottom: 14px; right: 14px; transform: scale(-1); }
+
+    .compliment-counter-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      letter-spacing: 0.22em;
+      color: var(--gold-shimmer);
+      margin-bottom: 1.75rem;
+    }
+
+    .dynamic-quote-stage {
+      min-height: 155px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 0.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .dynamic-quote-text {
+      font-family: var(--font-poetic);
+      font-size: clamp(1.4rem, 3.4vw, 2.05rem);
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1.52;
+      color: var(--ivory-pure);
+      max-width: 650px;
+      transition: opacity 0.48s ease, transform 0.48s cubic-bezier(0.22, 1, 0.36, 1), filter 0.48s ease;
+    }
+
+    .dynamic-quote-text.transitioning-out {
+      opacity: 0;
+      transform: translateY(-12px);
+      filter: blur(4px);
+    }
+
+    .dynamic-quote-text.transitioning-in {
+      opacity: 0;
+      transform: translateY(14px);
+      filter: blur(4px);
+    }
+
+    .btn-beauty-cta {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      padding: 1.05rem 2.2rem;
+      min-height: 54px;
+      border-radius: 999px;
+      border: 1px solid var(--gold-shimmer);
+      background: linear-gradient(135deg, #9b112c 0%, #63091b 50%, #3d0511 100%);
+      color: var(--ivory-pure);
+      font-family: var(--font-display);
+      font-size: clamp(0.8rem, 2.3vw, 0.92rem);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+      box-shadow:
+        0 12px 32px rgba(142, 17, 41, 0.55),
+        0 0 22px rgba(212, 175, 55, 0.25),
+        inset 0 1px 0 rgba(255, 250, 242, 0.28);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      overflow: hidden;
+    }
+
+    .btn-beauty-cta:hover {
+      transform: translateY(-2px) scale(1.02);
+      border-color: #fff5d6;
+      box-shadow:
+        0 16px 40px rgba(196, 30, 61, 0.65),
+        0 0 32px rgba(245, 220, 147, 0.42);
+    }
+
+    .btn-beauty-cta:active {
+      transform: scale(0.97);
+    }
+
+    .progress-dots-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      margin-top: 1.65rem;
+    }
+
+    .progress-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(245, 220, 147, 0.24);
+      transition: all 0.35s ease;
+    }
+
+    .progress-dot.active {
+      width: 22px;
+      background: var(--gold-shimmer);
+      box-shadow: 0 0 10px var(--gold-champagne);
+    }
+
+    /* ==========================================================================
+       9. THE SPECIAL MEMORY SECTION (IVORY & BURGUNDY PERSONAL LETTER)
+       ========================================================================== */
+    .letter-paper {
+      position: relative;
+      max-width: 780px;
+      margin: 2.5rem auto 0;
+      padding: clamp(2.2rem, 5.5vw, 4rem) clamp(1.5rem, 5vw, 3.75rem);
+      border-radius: 26px;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.85) 0%, transparent 55%),
+        linear-gradient(165deg, #fffaf2 0%, #faf0e1 52%, #f1dec4 100%);
+      color: #2b0611;
+      border: 1px solid rgba(212, 175, 55, 0.75);
+      box-shadow:
+        0 32px 75px rgba(8, 1, 3, 0.85),
+        0 0 0 6px rgba(43, 6, 17, 0.55),
+        0 0 0 7px rgba(212, 175, 55, 0.35);
+    }
+
+    .letter-inner-frame {
+      position: relative;
+      padding: clamp(1.25rem, 3vw, 2rem);
+      border: 1px solid rgba(166, 124, 30, 0.32);
+      border-radius: 18px;
+    }
+
+    .letter-salutation {
+      font-family: var(--font-poetic);
+      font-size: clamp(1.45rem, 3.2vw, 1.9rem);
+      font-style: italic;
+      font-weight: 600;
+      color: #7c0d23;
+      margin-bottom: 1.35rem;
+    }
+
+    .letter-body p {
+      font-family: var(--font-poetic);
+      font-size: clamp(1.2rem, 2.6vw, 1.45rem);
+      font-weight: 500;
+      line-height: 1.78;
+      color: #340815;
+      margin-bottom: 1.25rem;
+    }
+
+    .letter-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .letter-footer-sign {
+      margin-top: 2rem;
+      padding-top: 1.35rem;
+      border-top: 1px solid rgba(166, 124, 30, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .letter-signoff-text {
+      font-family: var(--font-poetic);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: #6d0b1f;
+    }
+
+    .letter-signoff-text strong {
+      display: block;
+      font-family: var(--font-display);
+      font-style: normal;
+      font-size: 0.92rem;
+      letter-spacing: 0.16em;
+      color: #2b0611;
+      margin-top: 0.2rem;
+    }
+
+    /* Wax Seal Stamp */
+    .wax-seal {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 32% 28%, #c92242 0%, #8e1129 55%, #4d0513 100%);
+      border: 2px solid #d4af37;
+      box-shadow:
+        0 8px 20px rgba(43, 6, 17, 0.45),
+        inset 0 2px 6px rgba(255, 220, 225, 0.35),
+        inset 0 -4px 8px rgba(35, 2, 9, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--gold-shimmer);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      transform: rotate(-8deg);
+      user-select: none;
+    }
+
+    /* ==========================================================================
+       10. FINAL SURPRISE & ANIMATED BLOOMING ROSE
+       ========================================================================== */
+    .finale-stage {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .finale-stanza {
+      display: flex;
+      flex-direction: column;
+      gap: 1.35rem;
+      margin-bottom: 2.75rem;
+    }
+
+    .finale-line {
+      font-family: var(--font-poetic);
+      font-size: clamp(1.35rem, 3.2vw, 1.9rem);
+      font-weight: 400;
+      line-height: 1.55;
+      color: var(--ivory-warm);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.15s ease, transform 1.15s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .finale-line.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .spotlight-statement {
+      margin: 2.5rem auto 3rem;
+      padding: 2rem 1.25rem;
+      border-top: 1px solid rgba(212, 175, 55, 0.28);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+      opacity: 0;
+      transform: scale(0.96) translateY(20px);
+      transition: opacity 1.4s ease, transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .spotlight-statement.visible {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    .spotlight-statement h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.55rem, 4.4vw, 2.75rem);
+      font-weight: 600;
+      line-height: 1.35;
+      letter-spacing: 0.06em;
+      background: linear-gradient(135deg, #fff5d6 0%, #f5dc93 30%, #d4af37 60%, #fff2c2 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: goldShimmerFlow 4.5s linear infinite;
+      text-shadow: 0 0 36px rgba(212, 175, 55, 0.25);
+    }
+
+    /* Blooming Rose Showcase */
+    .rose-altar {
+      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.5rem;
+      cursor: pointer;
+    }
+
+    .rose-halo-glow {
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.26) 0%, rgba(196, 30, 61, 0.18) 45%, transparent 72%);
+      filter: blur(12px);
+      animation: roseAuraPulse 4s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes roseAuraPulse {
+      0% { transform: scale(0.92); opacity: 0.7; }
+      100% { transform: scale(1.12); opacity: 1; }
+    }
+
+    .blooming-rose-svg {
+      width: 175px;
+      height: 195px;
+      overflow: visible;
+      filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.65));
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .rose-altar:hover .blooming-rose-svg {
+      transform: scale(1.06);
+    }
+
+    .rose-petal-layer {
+      transform-origin: 100px 92px;
+      transition: transform 1.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.5s ease;
+    }
+
+    .rose-altar:not(.bloomed) .petal-outer {
+      transform: scale(0.55) rotate(-14deg);
+      opacity: 0.4;
+    }
+
+    .rose-altar:not(.bloomed) .petal-mid {
+      transform: scale(0.62) rotate(12deg);
+      opacity: 0.6;
+    }
+
+    .rose-altar:not(.bloomed) .petal-inner {
+      transform: scale(0.75);
+      opacity: 0.85;
+    }
+
+    .rose-sparkle-dot {
+      animation: sparkleTwinkle 2.8s ease-in-out infinite;
+    }
+    .rose-sparkle-dot:nth-child(2) { animation-delay: 0.7s; }
+    .rose-sparkle-dot:nth-child(3) { animation-delay: 1.4s; }
+    .rose-sparkle-dot:nth-child(4) { animation-delay: 2.1s; }
+
+    @keyframes sparkleTwinkle {
+      0%, 100% { opacity: 0.25; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.35); }
+    }
+
+    .rose-hint-caption {
+      margin-top: 0.85rem;
+      font-family: var(--font-ui);
+      font-size: 0.74rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-shimmer);
+      opacity: 0.8;
+    }
+
+    /* ==========================================================================
+       11. FLOATING VINYL MUSIC PLAYER (MOBILE-FIRST & ANDROID OPTIMIZED)
+       ========================================================================== */
+    .music-dock-wrapper {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 90;
+      padding: 0.75rem 0.85rem calc(0.75rem + env(safe-area-inset-bottom));
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .music-player-dock {
+      pointer-events: auto;
+      width: 100%;
+      max-width: 620px;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.65rem 0.95rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(35, 5, 14, 0.88) 0%, rgba(18, 2, 7, 0.94) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.38);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.8),
+        0 0 24px rgba(142, 17, 41, 0.35),
+        inset 0 1px 0 rgba(255, 250, 242, 0.14);
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    body.music-playing .music-player-dock {
+      border-color: rgba(245, 220, 147, 0.62);
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.85),
+        0 0 32px rgba(212, 175, 55, 0.25),
+        inset 0 1px 0 rgba(255, 250, 242, 0.22);
+    }
+
+    /* Rotating Vinyl Record */
+    .vinyl-disc-unit {
+      position: relative;
+      width: 46px;
+      height: 46px;
+      min-width: 46px;
+      border-radius: 50%;
+      background:
+        repeating-radial-gradient(circle at center, #141414 0px, #141414 2px, #26181c 3px, #121212 4px);
+      border: 1.5px solid rgba(245, 220, 147, 0.55);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: spinVinyl 9s linear infinite;
+      animation-play-state: paused;
+    }
+
+    body.music-playing .vinyl-disc-unit {
+      animation-play-state: running;
+    }
+
+    .vinyl-disc-unit::before {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      border-radius: 50%;
+      background: conic-gradient(from 40deg, transparent 0%, rgba(255, 255, 255, 0.14) 15%, transparent 32%, transparent 50%, rgba(245, 220, 147, 0.16) 68%, transparent 85%);
+      pointer-events: none;
+    }
+
+    .vinyl-center-label {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #f5dc93 0%, #c41e3d 55%, #750b20 100%);
+      border: 1px solid #fff3c4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vinyl-spindle {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #140207;
+    }
+
+    @keyframes spinVinyl {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Play / Pause Button */
+    .player-play-btn {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-shimmer);
+      background: linear-gradient(135deg, #a81431 0%, #5e0819 100%);
+      color: var(--ivory-pure);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(196, 30, 61, 0.45);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .player-play-btn:hover {
+      transform: scale(1.06);
+      box-shadow: 0 6px 20px rgba(245, 220, 147, 0.35);
+    }
+
+    .player-play-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Track Metadata, Visualizer & Progress */
+    .player-track-zone {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.32rem;
+    }
+
+    .player-top-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .track-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      min-width: 0;
+    }
+
+    .track-name {
+      font-family: var(--font-display);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--ivory-pure);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Equalizer Visualizer Bars */
+    .audio-visualizer {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 13px;
+      padding-bottom: 1px;
+    }
+
+    .eq-bar {
+      width: 2.5px;
+      height: 3px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, var(--gold-shimmer), var(--crimson-glow));
+      transition: height 0.12s ease;
+    }
+
+    .track-time-readout {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-variant-numeric: tabular-nums;
+      color: var(--gold-shimmer);
+      opacity: 0.9;
+      white-space: nowrap;
+    }
+
+    /* Scrubbable Progress Bar */
+    .progress-bar-hitarea {
+      position: relative;
+      width: 100%;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      touch-action: none;
+    }
+
+    .progress-track-bg {
+      width: 100%;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 250, 242, 0.14);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-track-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--crimson-glow), var(--gold-champagne), var(--gold-shimmer));
+      box-shadow: 0 0 10px rgba(245, 220, 147, 0.55);
+      transition: width 0.08s linear;
+    }
+
+    /* Optional Local File Picker Button (Discreet Fallback) */
+    .player-file-btn {
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      background: rgba(255, 250, 242, 0.04);
+      color: var(--gold-shimmer);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0.72;
+      transition: all 0.25s ease;
+    }
+
+    .player-file-btn:hover {
+      opacity: 1;
+      border-color: var(--gold-shimmer);
+      background: rgba(212, 175, 55, 0.14);
+    }
+
+    @media (max-width: 420px) {
+      .music-player-dock {
+        padding: 0.55rem 0.75rem;
+        gap: 0.65rem;
+      }
+      .vinyl-disc-unit {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+      }
+      .player-play-btn {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+      }
+    }
+  </style>
+</head>
+
+<body class="intro-locked">
+  <!-- Ambient Lighting & High-DPI Canvas for Falling Rose Petals & Golden Particles -->
+  <div class="volumetric-spotlight" aria-hidden="true"></div>
+  <canvas id="atmosphere-canvas" aria-hidden="true"></canvas>
+
+  <!-- Custom Champagne-Gold Cursor (Desktop Only) -->
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Local MP3 Audio Element (Exact song.mp3, starts upon clicking ENTER) -->
+  <audio id="bg-music" src="song.mp3" preload="metadata" loop></audio>
+  <input type="file" id="fallback-audio-input" accept="audio/*" hidden />
+
+  <!-- ========================================================================
+       1. FULL-SCREEN CINEMATIC OPENING
+       ======================================================================== -->
+  <section id="cinematic-intro" aria-label="Cinematic Introduction">
+    <div class="intro-frame">
+      <p class="intro-line" id="intro-line-1">Some evenings are beautiful...</p>
+      <p class="intro-line" id="intro-line-2">...but some people make the entire evening beautiful.</p>
+
+      <div class="intro-divider" id="intro-divider"></div>
+
+      <h1 class="intro-hero-reveal" id="intro-hero-line">
+        Tonight, It's All About You, Alfiya ❤️
+      </h1>
+
+      <div class="enter-btn-wrapper" id="enter-btn-wrapper">
+        <button type="button" class="btn-enter" id="enter-experience-btn" aria-label="Enter the experience">
+          <span>ENTER</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14"></path>
+            <path d="m13 6 6 6-6 6"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MAIN ROMANTIC EXPERIENCE
+       ======================================================================== -->
+  <main id="main-experience">
+    <!-- ======================================================================
+         2. HERO & THE BEAUTY APPRECIATION SECTION
+         ====================================================================== -->
+    <section class="section-shell" id="beauty-section" style="text-align: center;">
+      <div class="royal-theme-pill">
+        <span>RED DRESS. CREAM HIJAB. ONE UNFORGETTABLE ALFIYA. ❤️</span>
+      </div>
+
+      <div>
+        <span class="section-eyebrow">An Ode To Tonight</span>
+        <h2 class="section-title">THE QUEEN OF TONIGHT</h2>
+      </div>
+
+      <!-- Silk Color Harmony Tribute -->
+      <div class="attire-harmony-grid reveal-on-scroll">
+        <div class="silk-swatch-card">
+          <div class="swatch-orb crimson-silk" aria-hidden="true"></div>
+          <div class="swatch-meta">
+            <h3>THE RED DRESS</h3>
+            <p>Royal crimson poise &amp; effortless elegance</p>
+          </div>
+        </div>
+
+        <div class="silk-swatch-card">
+          <div class="swatch-orb cream-silk" aria-hidden="true"></div>
+          <div class="swatch-meta">
+            <h3>THE CREAM HIJAB</h3>
+            <p>Soft ivory serenity &amp; pure grace</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timed One-by-One Cinematic Compliments -->
+      <div class="beauty-sequence-stack" id="beauty-sequence-stack">
+        <article class="compliment-cinematic-card" data-seq-index="0">
+          <span class="card-numeral">I &bull; ELEGANCE</span>
+          <p>"That beautiful red dress wasn't just an outfit tonight; it was a statement of elegance."</p>
+        </article>
+
+        <article class="compliment-cinematic-card highlight-cream" data-seq-index="1">
+          <span class="card-numeral">II &bull; SERENITY</span>
+          <p>"And that cream-coloured hijab? A perfect touch of grace, softness and beauty."</p>
+        </article>
+
+        <article class="compliment-cinematic-card" data-seq-index="2">
+          <span class="card-numeral">III &bull; RADIANCE</span>
+          <p>"Red brought the elegance, cream added the serenity, but it was your smile that made everything complete."</p>
+        </article>
+
+        <article class="compliment-cinematic-card finale-card" data-seq-index="3">
+          <span class="card-numeral">IV &bull; PRESENCE</span>
+          <p>"You didn't need to try to stand out. Some people naturally become the most beautiful part of every moment."</p>
+        </article>
+      </div>
+
+      <button type="button" class="btn-replay-subtle" id="replay-beauty-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+          <path d="M3 3v5h5"></path>
+        </svg>
+        <span>Replay Sequence</span>
+      </button>
+    </section>
+
+    <!-- ======================================================================
+         3. INTERACTIVE COMPLIMENT EXPERIENCE
+         ====================================================================== -->
+    <section class="section-shell" id="interactive-section">
+      <div class="interactive-sanctuary reveal-on-scroll">
+        <!-- Champagne Gold Corner Filigrees -->
+        <svg class="corner-ornament tl" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <path d="M4 36V12C4 7.58172 7.58172 4 12 4H36" />
+          <path d="M10 26V14C10 11.7909 11.7909 10 14 10H26" opacity="0.6" />
+          <circle cx="10" cy="10" r="2" fill="currentColor" />
+        </svg>
+        <svg class="corner-ornament tr" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <path d="M4 36V12C4 7.58172 7.58172 4 12 4H36" />
+          <path d="M10 26V14C10 11.7909 11.7909 10 14 10H26" opacity="0.6" />
+          <circle cx="10" cy="10" r="2" fill="currentColor" />
+        </svg>
+        <svg class="corner-ornament bl" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <path d="M4 36V12C4 7.58172 7.58172 4 12 4H36" />
+          <path d="M10 26V14C10 11.7909 11.7909 10 14 10H26" opacity="0.6" />
+          <circle cx="10" cy="10" r="2" fill="currentColor" />
+        </svg>
+        <svg class="corner-ornament br" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+          <path d="M4 36V12C4 7.58172 7.58172 4 12 4H36" />
+          <path d="M10 26V14C10 11.7909 11.7909 10 14 10H26" opacity="0.6" />
+          <circle cx="10" cy="10" r="2" fill="currentColor" />
+        </svg>
+
+        <span class="section-eyebrow">Whispers of Admiration</span>
+
+        <div>
+          <div class="compliment-counter-badge" id="compliment-counter">01 / 10</div>
+        </div>
+
+        <div class="dynamic-quote-stage">
+          <p class="dynamic-quote-text" id="dynamic-quote-text">
+            "The way the deep red silk met the soft cream of your hijab looked like poetry written in colour—effortless, timeless, and completely unforgettable."
+          </p>
+        </div>
+
+        <button type="button" class="btn-beauty-cta" id="next-compliment-btn">
+          <span>A Little More About Your Beauty</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3L12 3z"></path>
+          </svg>
+        </button>
+
+        <div class="progress-dots-row" id="compliment-dots" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. THE SPECIAL MEMORY SECTION (PERSONAL LETTER)
+         ====================================================================== -->
+    <section class="section-shell" id="memory-section" style="text-align: center;">
+      <div class="reveal-on-scroll">
+        <span class="section-eyebrow">A Keepsake In Words</span>
+        <h2 class="section-title">ONE EVENING, A THOUSAND BEAUTIFUL THOUGHTS</h2>
+      </div>
+
+      <article class="letter-paper reveal-on-scroll" style="text-align: left;">
+        <div class="letter-inner-frame">
+          <p class="letter-salutation">Dearest Alfiya,</p>
+
+          <div class="letter-body">
+            <p>
+              Most evenings arrive quietly and fade into the blur of ordinary days—just lights, conversations, and passing hours. Yet every once in a while, a single presence transforms an entire gathering into a memory that lingers long after the night is over.
+            </p>
+            <p>
+              Tonight was one of those rare evenings. Seeing you walk in wearing that breathtaking red dress and your cream-coloured hijab felt like watching calm grace meet royal warmth. Nothing about your beauty felt loud or forced; it lived in the gentle poise of how you carried yourself, the warmth in your eyes, and the effortless magic of your smile.
+            </p>
+            <p>
+              Out of a thousand fleeting details from tonight, it is your image that stays—vivid, serene, and unforgettable. Some evenings are remembered for the occasion, Alfiya, but tonight will always be remembered simply because you were there.
+            </p>
+          </div>
+
+          <div class="letter-footer-sign">
+            <div class="letter-signoff-text">
+              Written with admiration,
+              <strong>FOR THE QUEEN OF TONIGHT</strong>
+            </div>
+
+            <div class="wax-seal" title="Sealed for Alfiya" aria-hidden="true">A</div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ======================================================================
+         5. FINAL SURPRISE & ANIMATED BLOOMING ROSE
+         ====================================================================== -->
+    <section class="section-shell" id="final-surprise">
+      <div class="finale-stage">
+        <span class="section-eyebrow reveal-on-scroll">Until The Stars Fade</span>
+
+        <div class="finale-stanza" id="finale-stanza">
+          <p class="finale-line" data-finale-step="0">Alfiya, you looked beautiful tonight.</p>
+          <p class="finale-line" data-finale-step="1">But honestly, beauty isn't just about what someone wears.</p>
+          <p class="finale-line" data-finale-step="2">It's the grace they carry, the kindness they reflect, and the little things that make them unforgettable.</p>
+        </div>
+
+        <div class="spotlight-statement" id="spotlight-statement">
+          <h2>
+            Some people don't need the spotlight.<br />
+            They ARE the spotlight. ❤️
+          </h2>
+        </div>
+
+        <!-- Animated Blooming Crimson Rose SVG -->
+        <div class="rose-altar" id="rose-altar" role="button" tabindex="0" aria-label="Tap the crimson rose for golden sparkles">
+          <div class="rose-halo-glow" aria-hidden="true"></div>
+
+          <svg class="blooming-rose-svg" viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <radialGradient id="crimsonOuter" cx="50%" cy="35%" r="65%">
+                <stop offset="0%" stop-color="#d92346" />
+                <stop offset="55%" stop-color="#8e1129" />
+                <stop offset="100%" stop-color="#3b040f" />
+              </radialGradient>
+              <radialGradient id="crimsonMid" cx="45%" cy="30%" r="65%">
+                <stop offset="0%" stop-color="#f03559" />
+                <stop offset="60%" stop-color="#9e112c" />
+                <stop offset="100%" stop-color="#4a0513" />
+              </radialGradient>
+              <radialGradient id="crimsonCore" cx="50%" cy="40%" r="60%">
+                <stop offset="0%" stop-color="#ff6b86" />
+                <stop offset="50%" stop-color="#b81635" />
+                <stop offset="100%" stop-color="#590617" />
+              </radialGradient>
+              <linearGradient id="goldEdge" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fff3c4" />
+                <stop offset="50%" stop-color="#d4af37" />
+                <stop offset="100%" stop-color="#8a6314" />
+              </linearGradient>
+              <linearGradient id="stemGoldGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#4d6b45" />
+                <stop offset="50%" stop-color="#273b23" />
+                <stop offset="100%" stop-color="#182415" />
+              </linearGradient>
+            </defs>
+
+            <!-- Golden Sparkles Around Rose -->
+            <g fill="#f5dc93">
+              <circle class="rose-sparkle-dot" cx="42" cy="56" r="2.2" />
+              <circle class="rose-sparkle-dot" cx="158" cy="48" r="2.6" />
+              <circle class="rose-sparkle-dot" cx="34" cy="112" r="1.8" />
+              <circle class="rose-sparkle-dot" cx="166" cy="108" r="2.2" />
+            </g>
+
+            <!-- Stem & Leaves -->
+            <path d="M100 128 C99 156, 102 184, 98 212" stroke="url(#stemGoldGreen)" stroke-width="4.5" stroke-linecap="round" />
+            <path d="M100 128 C99 156, 102 184, 98 212" stroke="url(#goldEdge)" stroke-width="0.7" stroke-opacity="0.55" stroke-linecap="round" />
+
+            <!-- Left Leaf -->
+            <path d="M99 162 C78 152, 58 156, 52 170 C68 176, 86 174, 99 162 Z" fill="url(#stemGoldGreen)" stroke="url(#goldEdge)" stroke-width="0.9" />
+            <!-- Right Leaf -->
+            <path d="M100 148 C122 138, 142 142, 148 156 C132 162, 114 160, 100 148 Z" fill="url(#stemGoldGreen)" stroke="url(#goldEdge)" stroke-width="0.9" />
+
+            <!-- Sepals -->
+            <path d="M84 124 L68 134 L88 131 Z" fill="#2d4228" stroke="url(#goldEdge)" stroke-width="0.6" />
+            <path d="M116 124 L132 134 L112 131 Z" fill="#2d4228" stroke="url(#goldEdge)" stroke-width="0.6" />
+
+            <!-- Outer Petals Layer -->
+            <g class="rose-petal-layer petal-outer">
+              <path d="M100 128 C58 128, 42 86, 66 56 C80 74, 88 100, 100 128 Z" fill="url(#crimsonOuter)" stroke="url(#goldEdge)" stroke-width="0.9" />
+              <path d="M100 128 C142 128, 158 86, 134 56 C120 74, 112 100, 100 128 Z" fill="url(#crimsonOuter)" stroke="url(#goldEdge)" stroke-width="0.9" />
+              <path d="M100 132 C64 134, 52 102, 74 82 C88 94, 95 112, 100 132 Z" fill="url(#crimsonOuter)" stroke="url(#goldEdge)" stroke-width="0.8" />
+              <path d="M100 132 C136 134, 148 102, 126 82 C112 94, 105 112, 100 132 Z" fill="url(#crimsonOuter)" stroke="url(#goldEdge)" stroke-width="0.8" />
+            </g>
+
+            <!-- Mid Petals Layer -->
+            <g class="rose-petal-layer petal-mid">
+              <path d="M100 124 C68 118, 62 74, 86 48 C96 66, 98 94, 100 124 Z" fill="url(#crimsonMid)" stroke="url(#goldEdge)" stroke-width="0.9" />
+              <path d="M100 124 C132 118, 138 74, 114 48 C104 66, 102 94, 100 124 Z" fill="url(#crimsonMid)" stroke="url(#goldEdge)" stroke-width="0.9" />
+              <path d="M76 86 C86 68, 114 68, 124 86 C116 108, 84 108, 76 86 Z" fill="url(#crimsonMid)" stroke="url(#goldEdge)" stroke-width="0.85" />
+            </g>
+
+            <!-- Inner Spiral Heart of the Rose -->
+            <g class="rose-petal-layer petal-inner">
+              <path d="M100 44 C82 46, 76 72, 92 88 C106 96, 122 80, 114 58 C109 48, 104 44, 100 44 Z" fill="url(#crimsonCore)" stroke="url(#goldEdge)" stroke-width="1" />
+              <path d="M90 64 C95 54, 108 56, 108 68 C108 78, 94 80, 91 70 C90 67, 90 65, 90 64 Z" fill="#6b071b" stroke="url(#goldEdge)" stroke-width="0.85" />
+            </g>
+          </svg>
+
+          <span class="rose-hint-caption">Tap The Rose For Golden Stardust</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       6. FLOATING VINYL MUSIC PLAYER ("song.mp3")
+       ======================================================================== -->
+  <div class="music-dock-wrapper">
+    <aside class="music-player-dock" aria-label="Music Player">
+      <!-- Rotating Vinyl Disc -->
+      <div class="vinyl-disc-unit" aria-hidden="true">
+        <div class="vinyl-center-label">
+          <div class="vinyl-spindle"></div>
+        </div>
+      </div>
+
+      <!-- Play / Pause Button -->
+      <button type="button" class="player-play-btn" id="player-play-btn" aria-label="Play or pause song">
+        <svg id="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-left: 2px;" aria-hidden="true">
+          <polygon points="6 4 20 12 6 20 6 4"></polygon>
+        </svg>
+        <svg id="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="display: none;" aria-hidden="true">
+          <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+          <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+        </svg>
+      </button>
+
+      <!-- Track Title, Live Visualizer & Scrubbable Progress -->
+      <div class="player-track-zone">
+        <div class="player-top-meta">
+          <div class="track-title-group">
+            <span class="track-name" id="track-title-label">Alfiya's Evening Melody</span>
+            <div class="audio-visualizer" id="audio-visualizer" aria-hidden="true">
+              <span class="eq-bar"></span>
+              <span class="eq-bar"></span>
+              <span class="eq-bar"></span>
+              <span class="eq-bar"></span>
+              <span class="eq-bar"></span>
+              <span class="eq-bar"></span>
+              <span class="eq-bar"></span>
+            </div>
+          </div>
+          <span class="track-time-readout" id="track-time-readout">0:00 / 0:00</span>
+        </div>
+
+        <div class="progress-bar-hitarea" id="progress-hitarea" role="slider" tabindex="0" aria-label="Seek audio progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-track-bg">
+            <div class="progress-track-fill" id="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Discreet Local File Fallback Trigger (in case user hasn't placed song.mp3 yet) -->
+      <button type="button" class="player-file-btn" id="load-local-song-btn" title="Select local MP3 file if song.mp3 is in another folder" aria-label="Load local MP3 file">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 18V5l12-2v13"></path>
+          <circle cx="6" cy="18" r="3"></circle>
+          <circle cx="18" cy="16" r="3"></circle>
+        </svg>
+      </button>
+    </aside>
+  </div>
+
+  <!-- ========================================================================
+       JAVASCRIPT: CHOREOGRAPHY, CANVAS PARTICLES, INTERACTIVITY & AUDIO ENGINE
+       ======================================================================== -->
+  <script>
+    (() => {
+      'use strict';
+
+      /* ----------------------------------------------------------------------
+         A. ATMOSPHERIC CANVAS: FALLING ROSE PETALS & FLOATING GOLDEN DUST
+         ---------------------------------------------------------------------- */
+      const canvas = document.getElementById('atmosphere-canvas');
+      const ctx = canvas.getContext('2d');
+      let width = 0;
+      let height = 0;
+      let dpr = 1;
+
+      const petals = [];
+      const dustParticles = [];
+      const burstSparkles = [];
+
+      function resizeCanvas() {
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      class RosePetal {
+        constructor(initialY = null) {
+          this.reset(initialY);
+        }
+
+        reset(initialY = null) {
+          this.x = Math.random() * width;
+          this.y = initialY !== null ? initialY : -30 - Math.random() * 120;
+          this.size = 7 + Math.random() * 9;
+          this.speedY = 0.45 + Math.random() * 0.75;
+          this.swayAmp = 0.6 + Math.random() * 1.1;
+          this.swayFreq = 0.008 + Math.random() * 0.012;
+          this.phase = Math.random() * Math.PI * 2;
+          this.rotation = Math.random() * Math.PI * 2;
+          this.rotSpeed = (Math.random() - 0.5) * 0.025;
+          this.flipPhase = Math.random() * Math.PI * 2;
+          this.flipSpeed = 0.02 + Math.random() * 0.025;
+          this.opacity = 0.42 + Math.random() * 0.42;
+          const tones = [
+            ['#c41e3d', '#6e091d'],
+            ['#a81431', '#4d0413'],
+            ['#8e1129', '#38030e']
+          ];
+          this.palette = tones[Math.floor(Math.random() * tones.length)];
+        }
+
+        update(musicBoost) {
+          this.phase += this.swayFreq;
+          this.y += this.speedY * (1 + musicBoost * 0.35);
+          this.x += Math.sin(this.phase) * this.swayAmp;
+          this.rotation += this.rotSpeed;
+          this.flipPhase += this.flipSpeed;
+
+          if (this.y > height + 40) {
+            this.reset();
+          }
+        }
+
+        draw() {
+          ctx.save();
+          ctx.translate(this.x, this.y);
+          ctx.rotate(this.rotation);
+          const scaleY = 0.45 + 0.55 * Math.abs(Math.sin(this.flipPhase));
+          ctx.scale(1, scaleY);
+          ctx.globalAlpha = this.opacity;
+
+          const grad = ctx.createRadialGradient(0, -this.size * 0.2, 1, 0, 0, this.size);
+          grad.addColorStop(0, this.palette[0]);
+          grad.addColorStop(1, this.palette[1]);
+
+          ctx.fillStyle = grad;
+          ctx.beginPath();
+          ctx.moveTo(0, -this.size);
+          ctx.bezierCurveTo(this.size * 0.95, -this.size * 0.65, this.size * 0.85, this.size * 0.65, 0, this.size);
+          ctx.bezierCurveTo(-this.size * 0.85, this.size * 0.65, -this.size * 0.95, -this.size * 0.65, 0, -this.size);
+          ctx.fill();
+
+          // Delicate golden rim highlight on petal edge
+          ctx.strokeStyle = 'rgba(245, 220, 147, 0.22)';
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+
+          ctx.restore();
+        }
+      }
+
+      class GoldenDust {
+        constructor() {
+          this.reset(true);
+        }
+
+        reset(randomY = false) {
+          this.x = Math.random() * width;
+          this.y = randomY ? Math.random() * height : height + 10;
+          this.radius = 0.9 + Math.random() * 2.1;
+          this.speedY = -(0.15 + Math.random() * 0.38);
+          this.driftX = (Math.random() - 0.5) * 0.28;
+          this.twinklePhase = Math.random() * Math.PI * 2;
+          this.twinkleSpeed = 0.02 + Math.random() * 0.03;
+          this.baseAlpha = 0.28 + Math.random() * 0.55;
+        }
+
+        update(musicBoost) {
+          this.y += this.speedY * (1 + musicBoost * 0.5);
+          this.x += this.driftX;
+          this.twinklePhase += this.twinkleSpeed;
+
+          if (this.y < -15 || this.x < -15 || this.x > width + 15) {
+            this.reset(false);
+          }
+        }
+
+        draw(musicBoost) {
+          const alpha = Math.min(1, this.baseAlpha * (0.65 + 0.35 * Math.sin(this.twinklePhase)) + musicBoost * 0.25);
+          ctx.save();
+          ctx.globalAlpha = alpha;
+          ctx.fillStyle = '#f5dc93';
+          ctx.shadowColor = '#d4af37';
+          ctx.shadowBlur = 8 + musicBoost * 8;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+
+      class SparkleBurstParticle {
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+          const angle = Math.random() * Math.PI * 2;
+          const velocity = 1.2 + Math.random() * 3.8;
+          this.vx = Math.cos(angle) * velocity;
+          this.vy = Math.sin(angle) * velocity - 0.6;
+          this.size = 1.4 + Math.random() * 2.6;
+          this.life = 1;
+          this.decay = 0.016 + Math.random() * 0.018;
+          this.isCrimson = Math.random() < 0.28;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+          this.vy += 0.035; // gentle gravity
+          this.vx *= 0.98;
+          this.life -= this.decay;
+        }
+
+        draw() {
+          if (this.life <= 0) return;
+          ctx.save();
+          ctx.globalAlpha = Math.max(0, this.life);
+          ctx.fillStyle = this.isCrimson ? '#e32b4f' : '#fff3c4';
+          ctx.shadowColor = this.isCrimson ? '#c41e3d' : '#d4af37';
+          ctx.shadowBlur = 10;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size * this.life, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+
+      function spawnSparkleBurst(x, y, count = 22) {
+        for (let i = 0; i < count; i++) {
+          burstSparkles.push(new SparkleBurstParticle(x, y));
+        }
+      }
+
+      function initAtmosphere() {
+        resizeCanvas();
+        const isMobile = width < 640;
+        const petalCount = isMobile ? 16 : 28;
+        const dustCount = isMobile ? 32 : 55;
+
+        petals.length = 0;
+        dustParticles.length = 0;
+
+        for (let i = 0; i < petalCount; i++) {
+          petals.push(new RosePetal(Math.random() * height));
+        }
+        for (let i = 0; i < dustCount; i++) {
+          dustParticles.push(new GoldenDust());
+        }
+      }
+
+      let currentMusicEnergy = 0;
+
+      function animateAtmosphere() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < dustParticles.length; i++) {
+          dustParticles[i].update(currentMusicEnergy);
+          dustParticles[i].draw(currentMusicEnergy);
+        }
+
+        for (let i = 0; i < petals.length; i++) {
+          petals[i].update(currentMusicEnergy);
+          petals[i].draw();
+        }
+
+        for (let i = burstSparkles.length - 1; i >= 0; i--) {
+          burstSparkles[i].update();
+          burstSparkles[i].draw();
+          if (burstSparkles[i].life <= 0) {
+            burstSparkles.splice(i, 1);
+          }
+        }
+
+        requestAnimationFrame(animateAtmosphere);
+      }
+
+      window.addEventListener('resize', resizeCanvas, { passive: true });
+      initAtmosphere();
+      animateAtmosphere();
+
+      /* ----------------------------------------------------------------------
+         B. CUSTOM CHAMPAGNE-GOLD CURSOR (DESKTOP POINTER)
+         ---------------------------------------------------------------------- */
+      const cursorRing = document.getElementById('cursor-ring');
+      const cursorDot = document.getElementById('cursor-dot');
+      let mouseX = -100;
+      let mouseY = -100;
+      let ringX = -100;
+      let ringY = -100;
+
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        window.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          cursorDot.style.opacity = '1';
+          cursorRing.style.opacity = '1';
+          cursorDot.style.left = `${mouseX}px`;
+          cursorDot.style.top = `${mouseY}px`;
+        }, { passive: true });
+
+        const interactiveSelectors = 'button, a, [role="button"], [role="slider"], .silk-swatch-card, .compliment-cinematic-card';
+        document.addEventListener('mouseover', (e) => {
+          if (e.target.closest(interactiveSelectors)) {
+            cursorRing.classList.add('hovering');
+          }
+        });
+        document.addEventListener('mouseout', (e) => {
+          if (e.target.closest(interactiveSelectors)) {
+            cursorRing.classList.remove('hovering');
+          }
+        });
+
+        (function updateCursorRing() {
+          ringX += (mouseX - ringX) * 0.16;
+          ringY += (mouseY - ringY) * 0.16;
+          cursorRing.style.left = `${ringX}px`;
+          cursorRing.style.top = `${ringY}px`;
+          requestAnimationFrame(updateCursorRing);
+        })();
+      }
+
+      /* ----------------------------------------------------------------------
+         C. CINEMATIC OPENING CHOREOGRAPHY & ENTER TRANSITION
+         ---------------------------------------------------------------------- */
+      const introSection = document.getElementById('cinematic-intro');
+      const introLine1 = document.getElementById('intro-line-1');
+      const introLine2 = document.getElementById('intro-line-2');
+      const introDivider = document.getElementById('intro-divider');
+      const introHeroLine = document.getElementById('intro-hero-line');
+      const enterBtnWrapper = document.getElementById('enter-btn-wrapper');
+      const enterBtn = document.getElementById('enter-experience-btn');
+      const mainExperience = document.getElementById('main-experience');
+
+      function runCinematicIntro() {
+        // Step 1: "Some evenings are beautiful..."
+        setTimeout(() => {
+          introLine1.classList.add('visible');
+        }, 650);
+
+        // Step 2: Pause 2.2s, then "...but some people make the entire evening beautiful."
+        setTimeout(() => {
+          introLine2.classList.add('visible');
+        }, 2850);
+
+        // Step 3: Pause 2.4s, then reveal "Tonight, It's All About You, Alfiya ❤️"
+        setTimeout(() => {
+          introLine1.classList.add('soft-dim');
+          introLine2.classList.add('soft-dim');
+          introDivider.classList.add('expanded');
+          introHeroLine.classList.add('visible');
+        }, 5250);
+
+        // Step 4: Reveal glowing ENTER button
+        setTimeout(() => {
+          enterBtnWrapper.classList.add('visible');
+        }, 6450);
+      }
+
+      runCinematicIntro();
+
+      /* ----------------------------------------------------------------------
+         D. BEAUTY APPRECIATION SEQUENCED REVEAL
+         ---------------------------------------------------------------------- */
+      const beautyCards = Array.from(document.querySelectorAll('.compliment-cinematic-card'));
+      const replayBeautyBtn = document.getElementById('replay-beauty-btn');
+      let beautyTimers = [];
+
+      function playBeautySequence() {
+        beautyTimers.forEach((id) => clearTimeout(id));
+        beautyTimers = [];
+
+        beautyCards.forEach((card) => card.classList.remove('revealed'));
+
+        beautyCards.forEach((card, index) => {
+          const timerId = setTimeout(() => {
+            card.classList.add('revealed');
+          }, 500 + index * 1850);
+          beautyTimers.push(timerId);
+        });
+      }
+
+      replayBeautyBtn.addEventListener('click', (e) => {
+        spawnSparkleBurst(e.clientX || width / 2, e.clientY || height / 2, 18);
+        playBeautySequence();
+      });
+
+      /* ----------------------------------------------------------------------
+         E. INTERACTIVE COMPLIMENT EXPERIENCE (10 UNIQUE POETIC COMPLIMENTS)
+         ---------------------------------------------------------------------- */
+      const royalCompliments = [
+        "The way the deep red silk met the soft cream of your hijab looked like poetry written in colour—effortless, timeless, and completely unforgettable.",
+        "Most people dress to be noticed; you simply walked in and made the entire room feel warmer, brighter, and infinitely more graceful.",
+        "There is a rare serenity in how you carry yourself—a quiet confidence wrapped in ivory softness and royal crimson elegance.",
+        "Your smile tonight didn't just brighten your face; it softened the whole atmosphere and turned a fleeting moment into a favourite memory.",
+        "Red is a colour of bold beauty, and cream is a colour of pure calm—yet somehow, you wore both as if they were created solely for you.",
+        "Elegance isn't found in loud gestures; it lives in the gentle poise of your expressions, the kindness in your eyes, and the grace in every step.",
+        "Even in a room full of lights and celebration, nothing outshone the natural warmth and quiet charm you brought with you tonight.",
+        "Your cream-coloured hijab framed your features like soft moonlight, turning simple beauty into something truly breathtaking.",
+        "Some people leave an impression for a minute, while others—like you tonight—leave a feeling that stays with the heart for days.",
+        "Alfiya, you have a rare kind of beauty: the kind that feels both royal and deeply comforting at the very same time."
+      ];
+
+      const quoteTextEl = document.getElementById('dynamic-quote-text');
+      const counterEl = document.getElementById('compliment-counter');
+      const nextComplimentBtn = document.getElementById('next-compliment-btn');
+      const dotsContainer = document.getElementById('compliment-dots');
+
+      // Build progress dots
+      royalCompliments.forEach((_, idx) => {
+        const dot = document.createElement('span');
+        dot.className = 'progress-dot' + (idx === 0 ? ' active' : '');
+        dotsContainer.appendChild(dot);
+      });
+      const dotElements = Array.from(dotsContainer.querySelectorAll('.progress-dot'));
+
+      let currentComplimentIdx = 0;
+      let unvisitedIndices = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      let isAnimatingQuote = false;
+
+      function getNextUniqueIndex() {
+        if (unvisitedIndices.length === 0) {
+          unvisitedIndices = royalCompliments
+            .map((_, i) => i)
+            .filter((i) => i !== currentComplimentIdx);
+        }
+        const randomPos = Math.floor(Math.random() * unvisitedIndices.length);
+        const chosen = unvisitedIndices[randomPos];
+        unvisitedIndices.splice(randomPos, 1);
+        return chosen;
+      }
+
+      nextComplimentBtn.addEventListener('click', (e) => {
+        if (isAnimatingQuote) return;
+        isAnimatingQuote = true;
+
+        const rect = nextComplimentBtn.getBoundingClientRect();
+        spawnSparkleBurst(
+          e.clientX || rect.left + rect.width / 2,
+          e.clientY || rect.top + rect.height / 2,
+          20
+        );
+
+        const nextIdx = getNextUniqueIndex();
+        quoteTextEl.classList.add('transitioning-out');
+
+        setTimeout(() => {
+          currentComplimentIdx = nextIdx;
+          quoteTextEl.textContent = `"${royalCompliments[currentComplimentIdx]}"`;
+          counterEl.textContent = `${String(currentComplimentIdx + 1).padStart(2, '0')} / ${String(royalCompliments.length).padStart(2, '0')}`;
+
+          dotElements.forEach((d, i) => {
+            d.classList.toggle('active', i === currentComplimentIdx);
+          });
+
+          quoteTextEl.classList.remove('transitioning-out');
+          quoteTextEl.classList.add('transitioning-in');
+
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              quoteTextEl.classList.remove('transitioning-in');
+              setTimeout(() => {
+                isAnimatingQuote = false;
+              }, 460);
+            });
+          });
+        }, 420);
+      });
+
+      /* ----------------------------------------------------------------------
+         F. SCROLL OBSERVERS & FINAL SURPRISE BLOOMING ROSE
+         ---------------------------------------------------------------------- */
+      const scrollRevealEls = document.querySelectorAll('.reveal-on-scroll');
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.16 }
+      );
+      scrollRevealEls.forEach((el) => revealObserver.observe(el));
+
+      // Final Surprise Choreography
+      const finaleSection = document.getElementById('final-surprise');
+      const finaleLines = document.querySelectorAll('.finale-line');
+      const spotlightStatement = document.getElementById('spotlight-statement');
+      const roseAltar = document.getElementById('rose-altar');
+      let finaleTriggered = false;
+
+      const finaleObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !finaleTriggered) {
+              finaleTriggered = true;
+
+              finaleLines.forEach((line, i) => {
+                setTimeout(() => {
+                  line.classList.add('visible');
+                }, i * 1250);
+              });
+
+              setTimeout(() => {
+                spotlightStatement.classList.add('visible');
+              }, finaleLines.length * 1250 + 300);
+
+              setTimeout(() => {
+                roseAltar.classList.add('bloomed');
+                const rect = roseAltar.getBoundingClientRect();
+                spawnSparkleBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 32);
+              }, finaleLines.length * 1250 + 1150);
+
+              finaleObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+      finaleObserver.observe(finaleSection);
+
+      function triggerRoseSparkle(e) {
+        roseAltar.classList.add('bloomed');
+        const rect = roseAltar.getBoundingClientRect();
+        const cx = e.clientX || rect.left + rect.width / 2;
+        const cy = e.clientY || rect.top + rect.height / 2;
+        spawnSparkleBurst(cx, cy, 34);
+      }
+
+      roseAltar.addEventListener('click', triggerRoseSparkle);
+      roseAltar.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          triggerRoseSparkle(e);
+        }
+      });
+
+      /* ----------------------------------------------------------------------
+         G. FLOATING VINYL MUSIC PLAYER ("song.mp3") & VISUALIZER ENGINE
+         ---------------------------------------------------------------------- */
+      const bgMusic = document.getElementById('bg-music');
+      const playPauseBtn = document.getElementById('player-play-btn');
+      const iconPlay = document.getElementById('icon-play');
+      const iconPause = document.getElementById('icon-pause');
+      const progressHitarea = document.getElementById('progress-hitarea');
+      const progressFill = document.getElementById('progress-fill');
+      const timeReadout = document.getElementById('track-time-readout');
+      const trackTitleLabel = document.getElementById('track-title-label');
+      const eqBars = Array.from(document.querySelectorAll('.eq-bar'));
+      const loadLocalSongBtn = document.getElementById('load-local-song-btn');
+      const fallbackAudioInput = document.getElementById('fallback-audio-input');
+
+      let audioCtx = null;
+      let analyser = null;
+      let freqData = null;
+      let webAudioConnected = false;
+      let isPlaying = false;
+
+      function formatSeconds(sec) {
+        if (!Number.isFinite(sec) || sec < 0) return '0:00';
+        const mins = Math.floor(sec / 60);
+        const secs = Math.floor(sec % 60);
+        return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      }
+
+      function updateTimeDisplay() {
+        const current = bgMusic.currentTime || 0;
+        const duration = bgMusic.duration || 0;
+        timeReadout.textContent = `${formatSeconds(current)} / ${formatSeconds(duration)}`;
+        if (duration > 0) {
+          const pct = Math.min(100, Math.max(0, (current / duration) * 100));
+          progressFill.style.width = `${pct}%`;
+          progressHitarea.setAttribute('aria-valuenow', Math.round(pct));
+        }
+      }
+
+      function syncPlayerUI(playing) {
+        isPlaying = playing;
+        document.body.classList.toggle('music-playing', playing);
+        iconPlay.style.display = playing ? 'none' : 'block';
+        iconPause.style.display = playing ? 'block' : 'none';
+        if (!playing) {
+          currentMusicEnergy = 0;
+          eqBars.forEach((bar) => {
+            bar.style.height = '3px';
+          });
+        }
+      }
+
+      function initWebAudioVisualizer() {
+        if (webAudioConnected) return;
+        try {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContextClass) return;
+          audioCtx = new AudioContextClass();
+          const source = audioCtx.createMediaElementSource(bgMusic);
+          analyser = audioCtx.createAnalyser();
+          analyser.fftSize = 64;
+          source.connect(analyser);
+          analyser.connect(audioCtx.destination);
+          freqData = new Uint8Array(analyser.frequencyBinCount);
+          webAudioConnected = true;
+        } catch (err) {
+          // Graceful fallback on local file:// protocol where Chromium restricts MediaElementSource CORS
+          webAudioConnected = false;
+        }
+      }
+
+      async function startMusicPlayback() {
+        try {
+          initWebAudioVisualizer();
+          if (audioCtx && audioCtx.state === 'suspended') {
+            await audioCtx.resume();
+          }
+          await bgMusic.play();
+          syncPlayerUI(true);
+        } catch (err) {
+          syncPlayerUI(false);
+        }
+      }
+
+      function toggleMusicPlayback() {
+        if (bgMusic.paused) {
+          startMusicPlayback();
+        } else {
+          bgMusic.pause();
+          syncPlayerUI(false);
+        }
+      }
+
+      playPauseBtn.addEventListener('click', toggleMusicPlayback);
+
+      bgMusic.addEventListener('loadedmetadata', updateTimeDisplay);
+      bgMusic.addEventListener('timeupdate', updateTimeDisplay);
+      bgMusic.addEventListener('play', () => syncPlayerUI(true));
+      bgMusic.addEventListener('pause', () => syncPlayerUI(false));
+
+      // Scrubbable Progress Bar (Mouse & Touch)
+      let isScrubbing = false;
+
+      function seekFromClientX(clientX) {
+        const rect = progressHitarea.getBoundingClientRect();
+        const ratio = Math.min(1, Math.max(0, (clientX - rect.left) / rect.width));
+        if (Number.isFinite(bgMusic.duration) && bgMusic.duration > 0) {
+          bgMusic.currentTime = ratio * bgMusic.duration;
+          updateTimeDisplay();
+        }
+      }
+
+      progressHitarea.addEventListener('pointerdown', (e) => {
+        isScrubbing = true;
+        progressHitarea.setPointerCapture(e.pointerId);
+        seekFromClientX(e.clientX);
+      });
+
+      progressHitarea.addEventListener('pointermove', (e) => {
+        if (isScrubbing) {
+          seekFromClientX(e.clientX);
+        }
+      });
+
+      progressHitarea.addEventListener('pointerup', (e) => {
+        if (isScrubbing) {
+          isScrubbing = false;
+          progressHitarea.releasePointerCapture(e.pointerId);
+        }
+      });
+
+      // Fallback Local Audio Loader
+      loadLocalSongBtn.addEventListener('click', () => {
+        fallbackAudioInput.click();
+      });
+
+      fallbackAudioInput.addEventListener('change', (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        const objectUrl = URL.createObjectURL(file);
+        bgMusic.src = objectUrl;
+        trackTitleLabel.textContent = file.name.replace(/\.[^/.]+$/, '');
+        startMusicPlayback();
+      });
+
+      // Equalizer & Ambient Music-Reactive Loop
+      let vizPhase = 0;
+      function updateAudioVisualizer() {
+        if (isPlaying) {
+          vizPhase += 0.14;
+          let avgEnergy = 0;
+
+          if (webAudioConnected && analyser && freqData) {
+            analyser.getByteFrequencyData(freqData);
+            let sum = 0;
+            for (let i = 0; i < eqBars.length; i++) {
+              const val = freqData[i * 2 + 1] || 0;
+              sum += val;
+              const barHeight = Math.max(3, Math.min(13, (val / 255) * 13));
+              eqBars[i].style.height = `${barHeight}px`;
+            }
+            avgEnergy = sum / (eqBars.length * 255);
+          }
+
+          // Smooth organic harmonic wave fallback when WebAudio frequency data is zeroed on file://
+          if (avgEnergy < 0.02) {
+            for (let i = 0; i < eqBars.length; i++) {
+              const wave =
+                Math.sin(vizPhase + i * 0.85) * 0.45 +
+                Math.cos(vizPhase * 1.6 - i * 0.5) * 0.35 +
+                0.5;
+              const barHeight = Math.max(3, Math.min(13, 3 + wave * 9.5));
+              eqBars[i].style.height = `${barHeight}px`;
+            }
+            avgEnergy = 0.25 + 0.15 * Math.sin(vizPhase * 0.8);
+          }
+
+          currentMusicEnergy += (avgEnergy - currentMusicEnergy) * 0.18;
+        }
+
+        requestAnimationFrame(updateAudioVisualizer);
+      }
+      updateAudioVisualizer();
+
+      /* ----------------------------------------------------------------------
+         H. ENTER EXPERIENCE BUTTON HANDLER
+         ---------------------------------------------------------------------- */
+      enterBtn.addEventListener('click', (e) => {
+        const rect = enterBtn.getBoundingClientRect();
+        spawnSparkleBurst(
+          e.clientX || rect.left + rect.width / 2,
+          e.clientY || rect.top + rect.height / 2,
+          36
+        );
+
+        // Start local song.mp3 immediately on user interaction
+        startMusicPlayback();
+
+        // Transition out cinematic curtain & reveal main experience
+        introSection.classList.add('dismissed');
+        document.body.classList.remove('intro-locked');
+        mainExperience.classList.add('revealed');
+
+        // Begin the timed Beauty Appreciation compliment reveal
+        setTimeout(() => {
+          playBeautySequence();
+        }, 650);
+      });
+    })();
+  </script>
+</body>
+</html>
